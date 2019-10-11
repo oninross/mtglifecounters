@@ -25,7 +25,7 @@ $(() => {
 
 
     // Simple Service Worker to make App Install work (OPTIONAL)
-    // new ServiceWorker();
+    new ServiceWorker();
 
     console.log("I'm a Life Counter!!!");
 });

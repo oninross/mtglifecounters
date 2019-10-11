@@ -39,7 +39,7 @@ export default class Player {
     $('.-js-reset-life').on('click', function (e) {
       e.preventDefault();
 
-      $('.player__life').text(20)
+      $('.player__life').text(20);
     });
   }
 }
