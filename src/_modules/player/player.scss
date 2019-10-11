@@ -1,0 +1,55 @@
+// player styles
+.player {
+    position: relative;
+
+    &:first-child {
+        border-bottom: 1px solid $grey;
+    }
+
+    &__controls {
+        display: flex;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+    }
+
+    &__control {
+        background-color: transparent;
+        border: 0;
+        color: $white;
+        font-size: em(24);
+        font-weight: $bold;
+        text-shadow: 0 2px 4px #000000;
+        width: 50%;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:first-child {
+            padding-left: 25px;
+            text-align: left;
+        }
+
+        &:last-child {
+            padding-right: 25px;
+            text-align: right;
+        }
+    }
+
+    &__life {
+        align-items: center;
+        display: flex;
+        font-size: em(72);
+        font-weight: $bold;
+        height: 50vh;
+        justify-content: center;
+        position: relative;
+        z-index: 5;
+
+        &.-deads {
+            color: $red;
+        }
+    }
+}

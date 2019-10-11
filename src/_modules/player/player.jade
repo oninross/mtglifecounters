@@ -1,0 +1,9 @@
+mixin player(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  .player
+    .player__controls
+      button.player__control.-js-life-down(type="button") -
+      button.player__control.-js-life-up(type="button") +
+    .player__life 20
