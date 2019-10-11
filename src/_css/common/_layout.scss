@@ -32,7 +32,9 @@ body {
     border: 1px solid $white;
     background-color: $white;
     border-radius: 50%;
+    bottom: auto;
     height: 40px;
+    top: calc(50vh - 20px);
     width: 40px;
     z-index: 20;
 

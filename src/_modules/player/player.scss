@@ -28,12 +28,12 @@
         }
 
         &:first-child {
-            padding-left: 25px;
+            padding-left: 30px;
             text-align: left;
         }
 
         &:last-child {
-            padding-right: 25px;
+            padding-right: 30px;
             text-align: right;
         }
     }
@@ -41,7 +41,7 @@
     &__life {
         align-items: center;
         display: flex;
-        font-size: em(72);
+        font-size: em(100);
         font-weight: $bold;
         height: 50vh;
         justify-content: center;
