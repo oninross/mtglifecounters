@@ -1,12 +1,12 @@
 
 'use strict';
 
+import MaterialDesign from '../../_js/common/_material-design';
+
 export default class ServiceWorker {
   constructor() {
-    /*
-    * https://developers.google.com/web/fundamentals/app-install-banners/
-    * Look out for this link when Chrome 68 rolls out
-    */
+
+    const material = new MaterialDesign();
 
     if ('serviceWorker' in navigator) {
       let deferredPrompt;
@@ -26,7 +26,7 @@ export default class ServiceWorker {
                   switch (installingWorker.state) {
                     case 'installed':
                       if (!navigator.serviceWorker.controller) {
-                        // material.toaster('Caching complete!');
+                        material.toaster('Caching complete!');
                       }
                       break;
 
@@ -40,25 +40,26 @@ export default class ServiceWorker {
               console.error('uh oh... ');
               console.error(whut);
             });
-
-          // Show the prompt
-          deferredPrompt.prompt();
-          // Wait for the user to respond to the prompt
-          deferredPrompt.userChoice
-            .then((choiceResult) => {
-              if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
-              } else {
-                console.log('User dismissed the A2HS prompt');
-              }
-              deferredPrompt = null;
-            });
         }
       });
 
       window.addEventListener('beforeinstallprompt', (e) => {
         // Stash the event so it can be triggered later.
         deferredPrompt = e;
+
+        // Show the prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice
+          .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
       });
 
       window.addEventListener('appinstalled', (evt) => {
@@ -71,7 +72,7 @@ export default class ServiceWorker {
         console.log("navigator.serviceWorker.controller.onstatechange:: " + navigator.serviceWorker.controller.onstatechange)
         navigator.serviceWorker.controller.onstatechange = function (event) {
           if (event.target.state === 'redundant') {
-            // material.toaster('A new version of this app is available.'); // duration 0 indications shows the toast indefinitely.
+            material.toaster('A new version of this app is available.'); // duration 0 indications shows the toast indefinitely.
             window.location.reload();
           }
         };
