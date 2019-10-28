@@ -1,12 +1,8 @@
 
 'use strict';
 
-import MaterialDesign from '../../_js/common/_material-design';
-
 export default class ServiceWorker {
   constructor() {
-
-    const material = new MaterialDesign();
 
     if ('serviceWorker' in navigator) {
       let deferredPrompt;
@@ -26,7 +22,6 @@ export default class ServiceWorker {
                   switch (installingWorker.state) {
                     case 'installed':
                       if (!navigator.serviceWorker.controller) {
-                        material.toaster('Caching complete!');
                       }
                       break;
 
@@ -72,7 +67,6 @@ export default class ServiceWorker {
         console.log("navigator.serviceWorker.controller.onstatechange:: " + navigator.serviceWorker.controller.onstatechange)
         navigator.serviceWorker.controller.onstatechange = function (event) {
           if (event.target.state === 'redundant') {
-            material.toaster('A new version of this app is available.'); // duration 0 indications shows the toast indefinitely.
             window.location.reload();
           }
         };
