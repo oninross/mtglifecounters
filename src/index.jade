@@ -3,12 +3,15 @@ extends _layouts/base
 include ./_modules/player/player
 
 block content
-  section.section
+  .planeswalker__text
+    p Gathering mana reserves
+
+  section.section.-loading
     +player()
 
     +player()
 
-    button.planeswalker__logo.-js-reset-life(type="button")
+    .planeswalker__logo.-js-reset-life(type="button")
       svg(version='1.1', xmlns:cc='http://creativecommons.org/ns#', xmlns:dc='http://purl.org/dc/elements/1.1/', xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape', xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#', xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 0 13 24' style='enable-background:new 0 0 13 24;', xml:space='preserve')
         path(inkscape:connector-curvature='0', d='M0,12.1l0-0.5h0l0,0l0.5-6.3c0,0,0.2,4.4,1,5.6c0.3-0.1,0.6-0.2,1-0.3\
           c0.8-2.1,1.1-8.3,1.1-8.3S3.7,8,4.4,10.1C4.8,10.1,5.2,10,5.6,10C6.3,7.3,6.5,0,6.5,0s0.2,7.3,1,10c0.4,0,0.8,0.1,1.1,0.1\

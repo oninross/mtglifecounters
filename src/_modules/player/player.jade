@@ -4,7 +4,9 @@ mixin player(spec)
 
   .player
     .player__controls
-      button.player__control.-js-life-down(type="button") -
-      button.player__control.-js-life-up(type="button") +
+      .player__control.-js-life-down
+        span -
+      .player__control.-js-life-up
+        span +
     .player__life
       span 20
