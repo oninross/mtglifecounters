@@ -2,26 +2,42 @@
 
 export default class Player {
   constructor() {
-    $('.planeswalker__logo').css({
-      top: ($(window).height() / 2) - ($('.planeswalker__logo').height() / 2)
+    let $window = $(window);
+    let $logo = $('.planeswalker__logo');
+    let $player = $('.player');
+    let $life = $('.player__life span');
+    let $controls = $('.player__controls');
+
+    let windowWidth = $window.width();
+    let windowHeight = $window.height();
+    let lifeWidth = $life.width();
+    let lifeHeight = $life.height();
+    let controlHeight = $controls.outerHeight();
+
+    $logo.css({
+      top: (windowHeight / 2) - ($logo.height() / 2)
+    });
+
+    $player.css({
+      height: windowHeight / 2
     });
 
     $('.player:nth-child(1) .player__life span').css({
-      left: ($(window).width() / 2) - ($('.player__life span').width() / 2),
-      top: ($('.player').height() / 2) - (($('.player__controls').outerHeight() + 30) / 2) - ($('.player__life span').height() / 2),
-      width: $('.player__life span').width()
+      left: (windowWidth / 2) - (lifeWidth / 2),
+      top: ($player.height() / 2) - ((controlHeight + 30) / 2) - (lifeHeight / 2),
+      width: lifeWidth
     });
 
     $('.player:nth-child(2) .player__life span').css({
-      left: ($(window).width() / 2) - ($('.player__life span').width() / 2),
-      top: ($('.player').height() / 2) - (($('.player__controls').outerHeight() - 80) / 2) - ($('.player__life span').height() / 2),
-      width: $('.player__life span').width()
+      left: (windowWidth / 2) - (lifeWidth / 2),
+      top: ($player.height() / 2) - ((controlHeight - 80) / 2) - (lifeHeight / 2),
+      width: lifeWidth
     });
 
     $('.-js-reset-life').on('click', function (e) {
       e.preventDefault();
 
-      $('.player__life span').text(20).removeClass('-deads');
+      $life.text(20).removeClass('-deads');
     });
 
     $('.-js-life').on('click', function (e) {
